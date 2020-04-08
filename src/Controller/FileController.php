@@ -20,7 +20,7 @@ class FileController extends AbstractController
      */
     public function load(Request $request)
     {
-        $files = $request->files;
+        $files = $request->files->get('files');
 
         $entityManager = $this->getDoctrine()->getManager();
 

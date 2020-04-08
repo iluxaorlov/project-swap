@@ -4,7 +4,7 @@
 
 {% block body %}
     <form action="{{ path('load') }}" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
+        <input type="file" name="files[]" multiple>
         <button type="submit">Загрузить</button>
     </form>
 

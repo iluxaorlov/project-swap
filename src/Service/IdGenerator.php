@@ -11,6 +11,8 @@ use Exception;
 
 class IdGenerator extends AbstractIdGenerator
 {
+    private const LENGTH = 64;
+
     /**
      * @param EntityManager $em
      * @param object|null $entity
@@ -27,7 +29,7 @@ class IdGenerator extends AbstractIdGenerator
         $entityName = get_class($entity);
 
         while (true) {
-            $id = bin2hex(random_bytes(4));
+            $id = bin2hex(random_bytes(self::LENGTH / 2));
 
             $item = $em->find($entityName, $id);
 

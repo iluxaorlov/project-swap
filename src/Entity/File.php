@@ -34,18 +34,18 @@ class File
     private string $extension;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private int $size;
+    private string $size;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
-    private int $timestamp;
+    private string $timestamp;
 
     /**
      * @return string
@@ -68,7 +68,7 @@ class File
      */
     public function setName(string $name): void
     {
-        $this->name = $name;
+        $this->name = mb_strtolower($name);
     }
 
     /**
@@ -84,37 +84,37 @@ class File
      */
     public function setExtension(string $extension): void
     {
-        $this->extension = $extension;
+        $this->extension = mb_strtolower($extension);
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSize(): int
+    public function getSize(): string
     {
         return $this->size;
     }
 
     /**
-     * @param int $size
+     * @param string $size
      */
-    public function setSize(int $size): void
+    public function setSize(string $size): void
     {
         $this->size = $size;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getTimestamp(): int
+    public function getTimestamp(): string
     {
         return $this->timestamp;
     }
 
     /**
-     * @param int $timestamp
+     * @param string $timestamp
      */
-    public function setTimestamp(int $timestamp): void
+    public function setTimestamp(string $timestamp): void
     {
         $this->timestamp = $timestamp;
     }
